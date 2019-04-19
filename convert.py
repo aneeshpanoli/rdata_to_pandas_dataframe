@@ -1,5 +1,9 @@
+#!/usr/bin/env python
 
+"""Convert an expression dataset from biological experiment to pandas dataframe"""
 
+__author__      = "Aneesh Panoli"
+__copyright__   = "MIT License"
 
 
 import seaborn as sns
