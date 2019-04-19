@@ -53,6 +53,7 @@ class ConvertRdataToDataFrame:
   def get_pd_dataframe(self, eset_name, table_name, fn_name):
     '''run get_table_names() for tables names
       look up the package docs for fn_names
+      eset_name is the return value of load_rdata_as_eset
     '''
     data = eset_name.slots[table_name]
     r_frame = self.R[fn_name](data) #fn_name is a function from biobase package
