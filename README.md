@@ -1,5 +1,5 @@
 # Rdata_to_pandas_dataframe
-Converts expression data in RData format to pandas dataframe to work in python enviornment
+Converts expression data in RData format to pandas dataframe to work in python environment
 
 # Usage
 ```python
