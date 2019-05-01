@@ -19,9 +19,9 @@ import numpy as np
 
 
 # do the following _only the first time_, to install the package Biobase
-base = importr('base', quietly=True)
+base = importr('base')
 base.source("http://www.bioconductor.org/biocLite.R")
-biocinstaller = importr("BiocInstaller", quietly=True)
+biocinstaller = importr("BiocInstaller")
 # biocinstaller.biocLite("IRanges", "suppressUpdates=TRUE")
 biocinstaller.biocLite("Biobase",  suppressUpdates=True)
 
