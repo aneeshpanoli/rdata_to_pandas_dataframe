@@ -20,5 +20,5 @@ Enter n at the prompt
 seaborn  
 rpy2  
 urllib  
-pandas  
+pip install pandas==0.23 # current version of pandas is not compatible with rpy2
 numpy  
