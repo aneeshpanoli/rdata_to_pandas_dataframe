@@ -14,6 +14,7 @@ pdata_df = r2df.get_pd_dataframe(eset, 'pData') # phenotype data
 fdata_df = r2df.get_pd_dataframe(eset, 'fData') # feature data
 edata_df = r2df.get_pd_dataframe(eset, 'exprs') # expression data
 ```
+Enter n at the prompt  
 
 # Requirements
 seaborn  
