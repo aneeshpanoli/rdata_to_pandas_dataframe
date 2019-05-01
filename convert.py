@@ -30,8 +30,21 @@ pandas2ri.activate()
 class Initialize:
   
   def __init__(self):
-
     self.R = robjects.r
+    self.load_r()
+    
+  def load_r(self):
+    # do the following _only the first time_, to install the package Biobase
+    print("Loading R packages...")
+    base = importr('base')
+    base.source("http://www.bioconductor.org/biocLite.R")
+    biocinstaller = importr("BiocInstaller")
+    # biocinstaller.biocLite("IRanges", "suppressUpdates=TRUE")
+    biocinstaller.biocLite("Biobase",  suppressUpdates=True)
+
+    # load the installed package "Biobase"
+    biobase = importr("Biobase")
+    print("loading complete!")
   
   def download_rdata(self, url_name, dataset_name = 'R_data_set.RData'):
     ur.urlretrieve(url_name, dataset_name)
@@ -59,21 +72,8 @@ class Initialize:
     r_to_pd_frame = pandas2ri.ri2py(r_frame)
     return pd.DataFrame(data=r_to_pd_frame)
     
-def load_r():
-    # do the following _only the first time_, to install the package Biobase
-    print("Loading R packages...")
-    base = importr('base')
-    base.source("http://www.bioconductor.org/biocLite.R")
-    biocinstaller = importr("BiocInstaller")
-    # biocinstaller.biocLite("IRanges", "suppressUpdates=TRUE")
-    biocinstaller.biocLite("Biobase",  suppressUpdates=True)
 
-    # load the installed package "Biobase"
-    biobase = importr("Biobase")
-    print("loading complete!")
     
-if __name__ == '__main__':
-    load_r()
   
     
   
