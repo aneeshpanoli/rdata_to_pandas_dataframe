@@ -24,6 +24,7 @@ warnings.filterwarnings("ignore", category=RRuntimeWarning)
 
 
 # do the following _only the first time_, to install the package Biobase
+print("Loading R packages...")
 base = importr('base')
 base.source("http://www.bioconductor.org/biocLite.R")
 biocinstaller = importr("BiocInstaller")
