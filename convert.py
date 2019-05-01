@@ -31,7 +31,7 @@ pandas2ri.activate()
 
 
 
-class ConvertRdataToDataFrame:
+class Initialize:
   
   def __init__(self):
     self.R = robjects.r
