@@ -73,7 +73,7 @@ def load_r():
     print("loading complete!")
     
 if __name__ == '__main__':
-  load_r()
+    load_r()
   
     
   
