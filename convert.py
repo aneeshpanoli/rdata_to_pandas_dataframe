@@ -15,6 +15,8 @@ import urllib.request as ur
 import pandas as pd
 from rpy2.robjects.packages import importr
 import numpy as np
+
+#supresses RRuntime import warnings
 import warnings
 from rpy2.rinterface import RRuntimeWarning
 warnings.filterwarnings("ignore", category=RRuntimeWarning)
@@ -30,6 +32,7 @@ biocinstaller.biocLite("Biobase",  suppressUpdates=True)
 
 # load the installed package "Biobase"
 biobase = importr("Biobase")
+print("R package loading complete!")
 #activate converter
 pandas2ri.activate()
 
