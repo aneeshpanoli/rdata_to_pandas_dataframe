@@ -15,6 +15,9 @@ import pandas as pd
 from rpy2.robjects.packages import importr
 import numpy as np
 
+# supresses rpy2 warnings
+rpy2.robjects.r['options'](warn=-1)
+
 
 # do the following _only the first time_, to install the package Biobase
 base = importr('base')
