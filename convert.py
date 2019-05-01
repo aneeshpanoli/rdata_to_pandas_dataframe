@@ -15,6 +15,9 @@ import urllib.request as ur
 import pandas as pd
 from rpy2.robjects.packages import importr
 import numpy as np
+import warnings
+from rpy2.rinterface import RRuntimeWarning
+warnings.filterwarnings("ignore", category=RRuntimeWarning)
 
 
 
