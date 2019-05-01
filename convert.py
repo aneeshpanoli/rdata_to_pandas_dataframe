@@ -20,22 +20,10 @@ import numpy as np
 import warnings
 from rpy2.rinterface import RRuntimeWarning
 warnings.filterwarnings("ignore", category=RRuntimeWarning)
-
-
-
-# do the following _only the first time_, to install the package Biobase
-print("Loading R packages...")
-base = importr('base')
-base.source("http://www.bioconductor.org/biocLite.R")
-biocinstaller = importr("BiocInstaller")
-# biocinstaller.biocLite("IRanges", "suppressUpdates=TRUE")
-biocinstaller.biocLite("Biobase",  suppressUpdates=True)
-
-# load the installed package "Biobase"
-biobase = importr("Biobase")
-print("R package loading complete!")
 #activate converter
 pandas2ri.activate()
+
+
 
 
 
@@ -71,6 +59,21 @@ class Initialize:
     r_to_pd_frame = pandas2ri.ri2py(r_frame)
     return pd.DataFrame(data=r_to_pd_frame)
     
+def load_r():
+    # do the following _only the first time_, to install the package Biobase
+    print("Loading R packages...")
+    base = importr('base')
+    base.source("http://www.bioconductor.org/biocLite.R")
+    biocinstaller = importr("BiocInstaller")
+    # biocinstaller.biocLite("IRanges", "suppressUpdates=TRUE")
+    biocinstaller.biocLite("Biobase",  suppressUpdates=True)
+
+    # load the installed package "Biobase"
+    biobase = importr("Biobase")
+    print("loading complete!")
+    
+if __name__ == '__main__':
+  load_r()
   
     
   
