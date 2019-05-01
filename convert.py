@@ -21,12 +21,6 @@ import numpy as np
 # do the following _only the first time_, to install the package Biobase
 base = importr('base')
 base.source("http://www.bioconductor.org/biocLite.R")
-biocinstaller = importr("BiocInstaller")
-# biocinstaller.biocLite("IRanges", "suppressUpdates=TRUE")
-biocinstaller.biocLite("Biobase",  suppressUpdates=True)
-
-# load the installed package "Biobase"
-biobase = importr("Biobase")
 #activate converter
 pandas2ri.activate()
 
@@ -34,7 +28,13 @@ pandas2ri.activate()
 
 class Initialize:
   
-  def __init__(self):
+  def __init__(self, no_update=True):
+    biocinstaller = importr("BiocInstaller")
+    # biocinstaller.biocLite("IRanges", "suppressUpdates=TRUE")
+    biocinstaller.biocLite("Biobase",  suppressUpdates=no_update, quietly=True)
+
+    # load the installed package "Biobase"
+    biobase = importr("Biobase")
     self.R = robjects.r
   
   def download_rdata(self, url_name, dataset_name = 'R_data_set.RData'):
