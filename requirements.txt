@@ -1,5 +1,4 @@
 seaborn==0.9.0
 rpy2==2.9.5
-urllib==1.24.2
 pandas==0.23
 numpy==1.16.3
